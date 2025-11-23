@@ -1,0 +1,85 @@
+/* =====================================================
+   ✅ FORM COMPONENT
+   =====================================================
+   
+   File ini untuk:
+   - Registration form layout
+   - Success message (muncul setelah submit berhasil)
+   
+   ===================================================== */
+
+
+/* ========== FORM LAYOUT ========== */
+/* Form sudah diatur spacing-nya lewat .form-group di input.css */
+/* Tidak perlu styling tambahan untuk .registration-form */
+
+
+/* ========== SUCCESS MESSAGE ========== */
+/* Pesan yang muncul DI BAWAH form setelah submit berhasil */
+
+.success-message {
+    display: none;                          /* Hidden by default */
+    text-align: center;
+    padding: var(--spacing-6);              /* 24px */
+    margin-top: var(--spacing-6);           /* 24px dari form */
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-radius: var(--radius-lg);        /* 12px */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* State: ACTIVE (ditampilkan) */
+/* Note: display diubah via JavaScript, opacity & transform via CSS transition */
+.success-message.active {
+    opacity: 1;
+    transform: translateY(0);               /* Slide down animation */
+}
+
+/* Icon checkmark */
+.success-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-4);        /* 16px bawah */
+    background: var(--color-success);
+    color: var(--color-white);
+    border-radius: 50%;                     /* Lingkaran */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-2xl);        /* 24px */
+    font-weight: bold;
+}
+
+/* Heading success message */
+.success-message h2 {
+    font-size: var(--font-size-2xl);        /* 24px */
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: var(--spacing-2);        /* 8px */
+}
+
+/* Description success message */
+.success-message p {
+    font-size: var(--font-size-base);       /* 16px */
+    color: var(--color-gray-700);
+}
+
+
+/* ========== RESPONSIVE: Mobile ========== */
+
+@media (max-width: 640px) {
+    .success-message {
+        padding: var(--spacing-4);          /* Kurangi padding */
+    }
+    
+    .success-icon {
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-lg);     /* 18px */
+    }
+    
+    .success-message h2 {
+        font-size: var(--font-size-lg);     /* 18px */
+    }
+}

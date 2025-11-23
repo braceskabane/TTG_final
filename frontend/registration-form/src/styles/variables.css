@@ -1,0 +1,63 @@
+/* =====================================================
+   📦 CSS VARIABLES - Pengaturan Global
+   =====================================================
+   
+   File ini seperti "SETTINGS" aplikasi.
+   Berisi warna, ukuran font, jarak, dll yang bisa
+   dipakai di semua file CSS lainnya.
+   
+   Cara pakai: var(--nama-variable)
+   Contoh: color: var(--color-primary);
+   
+   Tidak apa-apa jika ada yang tidak terpakai,
+   ini memudahkan development kedepannya.
+   
+   ===================================================== */
+
+:root {
+    /* ----- WARNA UTAMA ----- */
+    --color-primary: #4F46E5;        /* Ungu - Button, link, focus */
+    --color-primary-dark: #4338CA;   /* Ungu gelap - Button hover */
+    
+    /* ----- WARNA STATUS ----- */
+    --color-success: #10B981;        /* Hijau - Pesan sukses, validasi OK */
+    --color-error: #EF4444;          /* Merah - Error message */
+    
+    /* ----- WARNA ABU-ABU (Neutral) ----- */
+    --color-white: #FFFFFF;
+    --color-gray-50: #F9FAFB;        /* Background super terang */
+    --color-gray-100: #F3F4F6;       /* Background hover */
+    --color-gray-300: #D1D5DB;       /* Border input */
+    --color-gray-500: #6B7280;       /* Text label */
+    --color-gray-700: #374151;       /* Text normal */
+    --color-gray-900: #111827;       /* Text heading (gelap) */
+    
+    /* ----- FONT & TEXT ----- */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    --font-size-sm: 0.875rem;        /* 14px - Text kecil */
+    --font-size-base: 1rem;          /* 16px - Text normal */
+    --font-size-lg: 1.125rem;        /* 18px - Text besar */
+    --font-size-2xl: 1.5rem;         /* 24px - Heading */
+    
+    /* ----- SPACING (Jarak/Padding/Margin) ----- */
+    --spacing-2: 0.5rem;             /* 8px */
+    --spacing-3: 0.75rem;            /* 12px */
+    --spacing-4: 1rem;               /* 16px */
+    --spacing-5: 1.25rem;            /* 20px */
+    --spacing-6: 1.5rem;             /* 24px */
+    --spacing-8: 2rem;               /* 32px */
+    
+    /* ----- BORDER RADIUS (Sudut Melengkung) ----- */
+    --radius-md: 0.5rem;             /* 8px - Input & Button */
+    --radius-lg: 0.75rem;            /* 12px - Card */
+    
+    /* ----- SHADOW (Bayangan) ----- */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* ----- ANIMASI ----- */
+    --transition: 200ms ease-in-out;
+    
+    /* ----- KHUSUS FORM ----- */
+    --input-height: 3rem;            /* 48px - Tinggi input field */
+}

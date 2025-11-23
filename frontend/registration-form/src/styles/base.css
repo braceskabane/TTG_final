@@ -1,0 +1,113 @@
+/* =====================================================
+   🎨 BASE STYLES
+   =====================================================
+   
+   File ini berisi 3 bagian utama:
+   1. CSS RESET - Menghilangkan default browser
+   2. LAYOUT CONTAINER - Wrapper untuk form
+   3. ZOOM PROTECTION - Handling resize + zoom
+   
+   ===================================================== */
+
+
+/* ========== 1. CSS RESET ========== */
+/* Hapus margin/padding default browser, box-sizing konsisten */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;                    /* Base: 16px */
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);   /* 16px */
+    color: var(--color-gray-700);
+    line-height: 1.5;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;                 /* Prevent horizontal scroll */
+}
+
+
+/* ========== 2. LAYOUT CONTAINER ========== */
+/* Ini adalah "wrapper" untuk form, biar form ada di tengah */
+
+.container {
+    display: flex;
+    justify-content: center;            /* Center horizontal */
+    align-items: center;                /* Center vertical */
+    min-height: 100vh;
+    padding: var(--spacing-4);          /* 16px padding */
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 480px;                   /* Lebar maksimal form */
+    background: var(--color-white);
+    padding: var(--spacing-8);          /* 32px padding dalam */
+    border-radius: var(--radius-lg);    /* Sudut melengkung 12px */
+    box-shadow: var(--shadow-md);
+}
+
+
+/* ========== 3. FORM HEADER ========== */
+/* Bagian judul di atas form */
+
+.form-header {
+    text-align: center;
+    margin-bottom: var(--spacing-6);    /* 24px spacing ke bawah */
+}
+
+.form-header h1 {
+    font-size: var(--font-size-2xl);    /* 24px */
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: var(--spacing-2);    /* 8px */
+}
+
+.form-header p {
+    font-size: var(--font-size-base);   /* 16px */
+    color: var(--color-gray-500);
+}
+
+
+/* ========== 4. ZOOM PROTECTION ========== */
+/* Handling ketika user resize window kecil + zoom in */
+
+/* Mobile: Layar kecil (< 640px) */
+@media (max-width: 640px) {
+    .form-wrapper {
+        padding: var(--spacing-5);      /* Kurangi padding jadi 20px */
+    }
+    
+    .form-header h1 {
+        font-size: var(--font-size-lg); /* Kurangi jadi 18px */
+    }
+}
+
+/* Extreme case: Layar SANGAT kecil (< 320px) */
+/* Atau kombinasi: layar kecil + zoom tinggi */
+@media (max-width: 320px) {
+    body {
+        overflow-x: clip;               /* PENTING: Prevent scroll lebih strict */
+    }
+    
+    .container {
+        padding: var(--spacing-2);      /* 8px saja */
+    }
+    
+    .form-wrapper {
+        padding: var(--spacing-3);      /* 12px saja */
+        max-width: 100%;                /* Full width */
+    }
+    
+    /* Lock font size agar tidak hancur */
+    html {
+        font-size: 14px;                /* Fixed, tidak pakai % lagi */
+    }
+}

@@ -1,0 +1,119 @@
+/* =====================================================
+   🔘 BUTTON COMPONENT
+   =====================================================
+   
+   File ini untuk styling button:
+   - Base button (.btn)
+   - Primary variant (.btn-primary)
+   - Block/full-width (.btn-block)
+   - Loading state (.loading)
+   
+   ===================================================== */
+
+
+/* ========== BASE BUTTON ========== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: var(--input-height);            /* 48px, sama dengan input */
+    padding: 0 var(--spacing-6);            /* 24px kiri-kanan */
+    font-size: var(--font-size-base);       /* 16px */
+    font-weight: 600;
+    font-family: var(--font-family);
+    text-align: center;
+    color: var(--color-white);
+    background: var(--color-primary);
+    border: none;
+    border-radius: var(--radius-md);        /* 8px */
+    cursor: pointer;
+    transition: var(--transition);
+    outline: none;
+}
+
+/* State: HOVER */
+.btn:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);            /* Naik 1px */
+    box-shadow: var(--shadow-md);
+}
+
+/* State: ACTIVE (saat diklik) */
+.btn:active {
+    transform: translateY(0);               /* Kembali ke posisi normal */
+}
+
+/* State: FOCUS (keyboard navigation) */
+.btn:focus {
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+}
+
+/* State: DISABLED */
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;                   /* Tidak bisa diklik */
+}
+
+
+/* ========== VARIANT: PRIMARY ========== */
+/* Ini untuk styling lebih spesifik jika ada variant lain nanti */
+
+.btn-primary {
+    background: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-dark);
+}
+
+
+/* ========== MODIFIER: BLOCK (Full Width) ========== */
+
+.btn-block {
+    width: 100%;                            /* Full width container */
+    display: flex;
+}
+
+
+/* ========== STATE: LOADING ========== */
+/* Ketika button sedang proses (submit form) */
+
+.btn.loading {
+    color: transparent;                     /* Text jadi transparan */
+    pointer-events: none;                   /* Tidak bisa diklik */
+    position: relative;
+}
+
+/* Loading spinner animation */
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;                /* Center the spinner */
+    border: 2px solid transparent;
+    border-top-color: var(--color-white);
+    border-radius: 50%;                     /* Lingkaran */
+    animation: spin 0.6s linear infinite;   /* Berputar terus */
+}
+
+/* Animation keyframe untuk spinner */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);          /* Putar 360 derajat */
+    }
+}
+
+
+/* ========== RESPONSIVE: Mobile ========== */
+
+@media (max-width: 640px) {
+    .btn {
+        height: 44px;                       /* Sedikit lebih kecil di mobile */
+    }
+}

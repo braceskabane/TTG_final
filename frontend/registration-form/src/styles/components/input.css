@@ -1,0 +1,160 @@
+/* =====================================================
+   📝 INPUT COMPONENT
+   =====================================================
+   
+   File ini untuk styling:
+   - Form group (wrapper input)
+   - Label
+   - Input field
+   - Password toggle button
+   - Error message
+   - Password strength indicator
+   
+   ===================================================== */
+
+
+/* ========== FORM GROUP ========== */
+/* Container untuk setiap input field + label + error */
+
+.form-group {
+    margin-bottom: var(--spacing-5);        /* 20px jarak antar field */
+}
+
+
+/* ========== LABEL ========== */
+
+.form-label {
+    display: block;
+    font-size: var(--font-size-sm);         /* 14px */
+    font-weight: 500;
+    color: var(--color-gray-700);
+    margin-bottom: var(--spacing-2);        /* 8px */
+}
+
+.form-label .required {
+    color: var(--color-error);              /* Tanda * merah */
+}
+
+
+/* ========== INPUT FIELD ========== */
+
+.form-input {
+    width: 100%;
+    height: var(--input-height);            /* 48px */
+    padding: 0 var(--spacing-4);            /* 16px kiri-kanan */
+    font-size: var(--font-size-base);       /* 16px */
+    font-family: var(--font-family);
+    color: var(--color-gray-900);
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);        /* 8px */
+    transition: var(--transition);
+    outline: none;
+}
+
+/* State: FOCUS (saat diklik) */
+.form-input:focus {
+    border-color: var(--color-primary);     /* Border jadi ungu */
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* State: ERROR */
+.form-input.error {
+    border-color: var(--color-error);       /* Border jadi merah */
+}
+
+.form-input.error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* State: SUCCESS */
+.form-input.success {
+    border-color: var(--color-success);     /* Border jadi hijau */
+}
+
+
+/* ========== PASSWORD WRAPPER ========== */
+/* Container khusus untuk input password + toggle button */
+
+.password-wrapper {
+    position: relative;                     /* Agar button bisa position absolute */
+}
+
+.password-wrapper .form-input {
+    padding-right: 3rem;                    /* Beri space untuk icon */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: var(--input-height);            /* 48px, sama dengan input */
+    width: 3rem;                            /* 48px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-gray-500);
+    transition: var(--transition);
+}
+
+.toggle-password:hover {
+    color: var(--color-primary);
+}
+
+.eye-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* ========== ERROR MESSAGE ========== */
+
+.error-message {
+    display: none;                          /* Hidden by default */
+    font-size: var(--font-size-sm);         /* 14px */
+    color: var(--color-error);
+    margin-top: var(--spacing-2);           /* 8px */
+}
+
+.error-message.active {
+    display: block;                         /* Show ketika ada error */
+}
+
+
+/* ========== PASSWORD STRENGTH INDICATOR ========== */
+
+.password-strength {
+    display: none;                          /* Hidden by default */
+    font-size: var(--font-size-sm);         /* 14px */
+    margin-top: var(--spacing-2);           /* 8px */
+}
+
+.password-strength.active {
+    display: block;
+}
+
+/* Warna berdasarkan strength */
+.password-strength.weak {
+    color: var(--color-error);              /* Merah */
+}
+
+.password-strength.medium {
+    color: var(--color-warning);            /* Kuning (jika ada) atau gray */
+    color: var(--color-gray-500);           /* Fallback ke gray */
+}
+
+.password-strength.strong {
+    color: var(--color-success);            /* Hijau */
+}
+
+
+/* ========== RESPONSIVE: Mobile ========== */
+
+@media (max-width: 640px) {
+    .form-input {
+        font-size: 16px;                    /* Prevent iOS zoom saat focus */
+    }
+}

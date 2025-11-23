@@ -1,0 +1,23 @@
+feat: Registration Form - Front-End Technical Test
+
+✨ Features:
+- Complete registration form with validation
+- Email, password, name validation
+- Password strength indicator
+- Real-time validation with debouncing
+- Modern SVG icons for password toggle
+- Success message displayed below form
+
+📱 Responsive & Accessible:
+- Mobile-first design
+- Zoom support (200%-400%)
+- Resize + zoom protection
+- WCAG compliant
+- No horizontal scroll
+- Keyboard navigation
+
+🛠️ Tech Stack:
+- Pure vanilla JavaScript (ES6+)
+- CSS custom properties
+- Component-based architecture
+- Zero dependencies
