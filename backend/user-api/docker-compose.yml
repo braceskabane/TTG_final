@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: user-api-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=user-api
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - user-api-network
+
+networks:
+  user-api-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+    driver: local
